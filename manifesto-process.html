@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M³ Manifesto Process</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="process-page">
+  <main class="page content-page">
+    <a class="brand" href="./index.html">M&sup3;</a>
+    <a class="page-home-link" href="./about.html#project-section">&larr; Back to About</a>
+
+    <section class="document-shell process-shell">
+      <div class="section-intro">
+        <p class="eyebrow">Project Process 01</p>
+        <h1 class="section-title">Discussing the Manifesto</h1>
+        <p class="section-lead">The manifesto did not appear as a finished text. It grew through conversation, disagreement, annotation, rewriting, and interface experiments that helped us decide what needed to stay open.</p>
+      </div>
+
+      <div class="section-group">
+        <div class="subsection-header">
+          <h2 class="subsection-title">Process Timeline</h2>
+          <p class="subsection-note">A brief path from shared questions to a public-facing manifesto space.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-index">01</div>
+            <div class="timeline-copy">
+              <h2>Starting from frustration</h2>
+              <p>We began by naming what felt limiting around singular narratives, forced coherence, and the pressure to agree too quickly. These early discussions gave the manifesto its emotional and political direction.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-index">02</div>
+            <div class="timeline-copy">
+              <h2>Collecting fragments</h2>
+              <p>Instead of writing one polished statement immediately, we gathered phrases, tensions, and partial thoughts. This let multiple voices remain visible before the text was organized.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-index">03</div>
+            <div class="timeline-copy">
+              <h2>Revising together</h2>
+              <p>We repeatedly returned to the wording, testing what needed clarity and what needed to remain unresolved. Revision became less about smoothing differences and more about shaping them carefully.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-index">04</div>
+            <div class="timeline-copy">
+              <h2>Building a public form</h2>
+              <p>Once the language had enough shared weight, we translated it into a website that could hold the manifesto as an experience rather than only a block of text.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="section-group">
+        <div class="subsection-header">
+          <h2 class="subsection-title">What Shaped the Work</h2>
+          <p class="subsection-note">The main concerns that guided how we discussed, edited, and presented the manifesto.</p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <p class="card-kicker">Core Questions</p>
+            <h2>What did we keep asking?</h2>
+            <ul class="detail-list">
+              <li>How can difference stay visible without becoming a problem to erase?</li>
+              <li>What language feels honest to our process instead of pretending we fully agree?</li>
+              <li>How can a public-facing site still carry tension, softness, and multiplicity?</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <p class="card-kicker">Key Outcome</p>
+            <h2>What emerged from revision?</h2>
+            <ul class="detail-list">
+              <li>A manifesto that protects disagreement as part of collective practice.</li>
+              <li>A design direction that treats layout and interaction as part of meaning.</li>
+              <li>A shared process for drafting, revising, and re-reading together.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="section-group">
+        <div class="subsection-header compact-header">
+          <h2 class="subsection-title">Visual Drift</h2>
+          <p class="subsection-note">Images sourced from the internet.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-card">
+            <img data-random-manifesto-image src="./manifesto/assets/images/1.jpeg" alt="Reference image from the manifesto website" loading="lazy">
+          </figure>
+
+          <figure class="gallery-card">
+            <img data-random-manifesto-image src="./manifesto/assets/images/2.jpeg" alt="Reference image from the manifesto website" loading="lazy">
+          </figure>
+
+          <figure class="gallery-card">
+            <img data-random-manifesto-image src="./manifesto/assets/images/3.jpeg" alt="Reference image from the manifesto website" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+      <div class="section-group process-cta">
+        <div class="subsection-header">
+          <h2 class="subsection-title">Visit the Manifesto Site</h2>
+          <p class="subsection-note">Move from the process page into the public version of the manifesto.</p>
+        </div>
+
+        <div class="link-cluster">
+          <a class="link-pill" href="./manifesto/">Open Manifesto Website</a>
+          <a class="link-pill" href="./about.html#project-section">Back to Project Overview</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer scroll-footer">&copy; 2026 M&sup3;</footer>
+  <script>
+    const manifestoImagePool = Array.from(
+      { length: 20 },
+      (_, index) => `./manifesto/assets/images/${index + 1}.jpeg`
+    );
+
+    const manifestoImages = Array.from(
+      document.querySelectorAll("[data-random-manifesto-image]")
+    );
+
+    function shuffleImages(imageList) {
+      const shuffledImages = [...imageList];
+      for (let index = shuffledImages.length - 1; index > 0; index -= 1) {
+        const randomIndex = Math.floor(Math.random() * (index + 1));
+        [shuffledImages[index], shuffledImages[randomIndex]] = [
+          shuffledImages[randomIndex],
+          shuffledImages[index]
+        ];
+      }
+      return shuffledImages;
+    }
+
+    function getNextImageSet(currentSources) {
+      let nextSet = shuffleImages(manifestoImagePool).slice(0, manifestoImages.length);
+
+      while (
+        currentSources.length &&
+        nextSet.every((source, index) => source === currentSources[index])
+      ) {
+        nextSet = shuffleImages(manifestoImagePool).slice(0, manifestoImages.length);
+      }
+
+      return nextSet;
+    }
+
+    function renderManifestoImages(nextSources) {
+      manifestoImages.forEach((image, index) => {
+        image.style.opacity = "0.35";
+        window.setTimeout(() => {
+          image.src = nextSources[index];
+          image.style.opacity = "1";
+        }, 180);
+      });
+    }
+
+    let currentManifestoSources = [];
+
+    function cycleManifestoImages() {
+      const nextSources = getNextImageSet(currentManifestoSources);
+      renderManifestoImages(nextSources);
+      currentManifestoSources = nextSources;
+    }
+
+    cycleManifestoImages();
+    window.setInterval(cycleManifestoImages, 3200);
+  </script>
+</body>
+</html>

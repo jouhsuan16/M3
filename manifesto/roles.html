@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Roles</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400..700;1,400..700&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="split-view">
+    <a class="brand" href="../index.html">M&sup3;</a>
+    <div id="manifesto-full-page">
+        <div class="manifesto-content roles-page-content">
+            <a href="index.html" class="back-btn">&larr; Back to Overview</a>
+            <h2 class="roles-title">Our Roles</h2>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">1</span>
+                    <span class="role-name">Process Anchor</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for safeguarding rhythm and structure:</p>
+                    <ul>
+                        <li>Reminds the group to slow down</li>
+                        <li>Ensures discussions are not overly compressed</li>
+                        <li>Maintains boundaries and time</li>
+                    </ul>
+                    <p class="role-note">They do not control direction; they protect the process.</p>
+                </div>
+            </div>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">2</span>
+                    <span class="role-name">Tension Holder</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for protecting disagreement:</p>
+                    <ul>
+                        <li>Calls attention to overlooked voices</li>
+                        <li>Prevents premature consensus</li>
+                        <li>Encourages unfinished ideas to remain present</li>
+                    </ul>
+                    <p class="role-note">They are not contrarians, but guardians of complexity.</p>
+                </div>
+            </div>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">3</span>
+                    <span class="role-name">Documentation Keeper</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for:</p>
+                    <ul>
+                        <li>Recording discussions</li>
+                        <li>Preserving unresolved questions</li>
+                        <li>Tracking the evolution of collective decisions</li>
+                    </ul>
+                    <p class="role-note">They ensure we do not forget in the acceleration of progress.</p>
+                </div>
+            </div>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">4</span>
+                    <span class="role-name">Boundary Steward</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for:</p>
+                    <ul>
+                        <li>Noticing limits of capacity</li>
+                        <li>Monitoring overextension</li>
+                        <li>Supporting redistribution of tasks</li>
+                    </ul>
+                    <p class="role-note">They protect sustainability, not efficiency.</p>
+                </div>
+            </div>
+
+            <div class="role-item">
+                <button class="role-header">
+                    <span class="role-number">5</span>
+                    <span class="role-name">External Interface</span>
+                    <span class="role-toggle">+</span>
+                </button>
+                <div class="role-body">
+                    <p>Responsible for:</p>
+                    <ul>
+                        <li>External communication</li>
+                        <li>Articulating the collective's position</li>
+                        <li>Maintaining collaborative relationships</li>
+                    </ul>
+                    <p class="role-note">They do not speak as individuals, but translate the collective's agreements and disagreements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer scroll-footer">&copy; 2026 M&sup3;</footer>
+    <script>
+        document.querySelectorAll('.role-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const isOpen = item.classList.contains('open');
+
+                document.querySelectorAll('.role-item').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.role-toggle').textContent = '+';
+                });
+
+                if (!isOpen) {
+                    item.classList.add('open');
+                    header.querySelector('.role-toggle').textContent = '–';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
