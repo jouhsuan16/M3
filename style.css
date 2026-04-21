@@ -25,16 +25,10 @@ body {
 }
 
 body.member-page,
-body.about-page {
-  background: linear-gradient(180deg, #0a3d91 0%, #7fc4ff 100%) fixed;
-}
-
-body.process-page {
-  background: linear-gradient(180deg, #38466b 0%, #c2d4ff 100%) fixed;
-}
-
+body.about-page,
+body.process-page,
 body.activation-page {
-  background: linear-gradient(180deg, #125850 0%, #96ddd3 100%) fixed;
+  background: linear-gradient(180deg, #0a3d91 0%, #7fc4ff 100%) fixed;
 }
 
 .site-footer {
@@ -357,12 +351,85 @@ body.activation-page .content-page {
   flex-direction: column;
 }
 
+.process-start-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.process-start-card img {
+  display: block;
+  width: 88%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 16px;
+  justify-self: start;
+  align-self: start;
+}
+
+.process-start-copy p:first-child {
+  margin-top: 0;
+}
+
+.process-start-copy {
+  align-self: start;
+}
+
+.process-start-copy p {
+  font-size: 0.97rem;
+  line-height: 1.68;
+  text-wrap: pretty;
+}
+
 .project-card .link-cluster {
   margin-top: 1.25rem;
 }
 
 .project-card .link-pill {
   width: fit-content;
+}
+
+.process-form-grid {
+  align-items: stretch;
+}
+
+.process-form-copy,
+.process-form-reference {
+  height: 100%;
+}
+
+.process-form-copy p {
+  text-wrap: pretty;
+}
+
+.process-reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 1.2rem;
+}
+
+.process-reference-item {
+  margin: 0;
+}
+
+.process-reference-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.process-reference-item figcaption {
+  margin-top: 0.55rem;
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.76);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .timeline {
@@ -470,8 +537,23 @@ body.activation-page .content-page {
   z-index: 2;
 }
 
+.process-shell .section-lead {
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
 .process-cta {
   margin-top: 3.25rem;
+}
+
+@media (min-width: 721px) {
+  .manifesto-process-intro {
+    max-width: 980px;
+  }
+
+  .manifesto-process-title {
+    white-space: nowrap;
+  }
 }
 
 .member-grid {
@@ -580,10 +662,6 @@ body.activation-page .content-page {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 16px;
-}
-
-img[data-random-manifesto-image] {
-  transition: opacity 220ms ease;
 }
 
 .gallery-card figcaption {
@@ -921,6 +999,10 @@ img[data-random-manifesto-image] {
 
   .info-grid,
   .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-start-card {
     grid-template-columns: 1fr;
   }
 
