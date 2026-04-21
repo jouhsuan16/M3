@@ -6,6 +6,13 @@
   --button-hover: rgba(255, 248, 240, 0.28);
   --border: rgba(255, 255, 255, 0.28);
   --panel: rgba(255, 248, 240, 0.14);
+  --page-shell-top: 8vh;
+  --page-shell-bottom: 4rem;
+  --page-title-size: clamp(1.8rem, 4vw, 2.8rem);
+  --page-subtitle-size: clamp(1.45rem, 3vw, 2rem);
+  --box-copy-size: 1rem;
+  --box-copy-line-height: 1.75;
+  --box-copy-gap: 18px;
 }
 
 * {
@@ -112,6 +119,7 @@ body.game-process-page .eyebrow,
 body.game-process-page .section-lead,
 body.game-process-page .subsection-note,
 body.game-process-page .card-kicker,
+body.game-process-page .process-step-label,
 body.game-process-page .process-reference-item figcaption,
 body.game-process-page .gallery-card figcaption,
 body.game-process-page .site-footer {
@@ -220,7 +228,7 @@ body.activation-page .content-page {
 }
 
 .brand:hover {
-  color: #C1121F;
+  color: #cfe9ff;
 }
 
 .home-page .brand {
@@ -412,21 +420,32 @@ body.activation-page .content-page {
   margin-top: 1.7rem;
 }
 
-.document-shell {
+.document-shell,
+.member-section,
+.process-shell {
   max-width: 1120px;
   width: 100%;
-  margin: 1.5vh auto 6rem;
+  margin: var(--page-shell-top) auto var(--page-shell-bottom);
   position: relative;
   z-index: 2;
 }
 
-.document-shell>.link-cluster:first-child {
+.document-shell > .link-cluster:first-child {
   margin-top: 0;
+}
+
+body.about-page .document-shell > .link-cluster:first-child {
+  transform: translateY(-6.5vh);
 }
 
 .section-intro {
   max-width: 760px;
   margin-bottom: 2rem;
+}
+
+.page-hero {
+  max-width: 760px;
+  margin: 0 0 2rem;
 }
 
 .eyebrow {
@@ -451,11 +470,21 @@ body.activation-page .content-page {
   font-size: clamp(2.4rem, 6vw, 4.4rem);
 }
 
+.process-shell .section-title {
+  font-size: var(--page-title-size);
+}
+
+.page-hero .section-title,
+.page-hero .subsection-title {
+  font-size: var(--page-title-size);
+}
+
 .section-lead {
   margin: 1rem 0 0;
-  max-width: 720px;
+  max-width: 34rem;
   line-height: 1.8;
   font-size: 1.04rem;
+  text-wrap: pretty;
   color: rgba(255, 255, 255, 0.92);
 }
 
@@ -464,25 +493,47 @@ body.activation-page .content-page {
   margin: 3.5rem 0 1.5rem;
 }
 
+.section-intro.page-hero,
+.subsection-header.page-hero {
+  margin: 0 0 2rem;
+}
+
 .compact-header {
   margin-top: 2rem;
 }
 
 .subsection-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: var(--page-subtitle-size);
+}
+
+.process-shell .subsection-title {
+  font-size: var(--page-subtitle-size);
+}
+
+.member-page-title {
+  font-size: var(--page-title-size);
+}
+
+body.about-page #project-section .subsection-title {
+  font-size: var(--page-title-size);
 }
 
 .subsection-note {
   margin: 0.9rem 0 0;
-  max-width: 760px;
+  max-width: 34rem;
   line-height: 1.75;
   font-size: 0.98rem;
+  text-wrap: pretty;
   color: rgba(255, 255, 255, 0.88);
 }
 
 .section-group {
   margin-top: 4rem;
   scroll-margin-top: 6rem;
+}
+
+body.about-page #about-section {
+  margin-top: -1.25rem;
 }
 
 .info-grid {
@@ -522,13 +573,11 @@ body.activation-page .content-page {
   line-height: 1.2;
 }
 
-.info-card p {
-  margin: 0;
-  line-height: 1.75;
-}
-
-.info-card p+p {
-  margin-top: 0.9rem;
+.info-card p:not(.card-kicker):not(.process-step-label):not(.process-step-quote) {
+  margin: 0 0 var(--box-copy-gap);
+  font-size: var(--box-copy-size);
+  line-height: var(--box-copy-line-height);
+  text-wrap: pretty;
 }
 
 .feature-card {
@@ -574,18 +623,20 @@ body.activation-page .content-page {
   border-radius: 14px;
 }
 
-.process-start-copy p:first-child {
-  margin-top: 0;
-}
-
 .process-start-copy {
   align-self: start;
 }
 
-.process-start-copy p {
-  font-size: 0.97rem;
-  line-height: 1.68;
+.process-start-copy p:not(.card-kicker) {
+  margin: 0 0 var(--box-copy-gap);
+  font-size: var(--box-copy-size);
+  line-height: var(--box-copy-line-height);
   text-wrap: pretty;
+}
+
+.process-start-copy p:not(.card-kicker):last-child,
+.info-card p:not(.card-kicker):not(.process-step-label):not(.process-step-quote):last-child {
+  margin-bottom: 0;
 }
 
 .process-placeholder {
@@ -683,7 +734,8 @@ body.activation-page .content-page {
 .process-step-list li {
   padding-top: 0;
   border-top: 0;
-  line-height: 1.45;
+  font-size: var(--box-copy-size);
+  line-height: var(--box-copy-line-height);
 }
 
 .process-step-list li:first-child {
@@ -766,7 +818,9 @@ body.activation-page .content-page {
 
 .timeline-copy p {
   margin: 0;
-  line-height: 1.75;
+  font-size: var(--box-copy-size);
+  line-height: var(--box-copy-line-height);
+  text-wrap: pretty;
 }
 
 .detail-list {
@@ -780,7 +834,8 @@ body.activation-page .content-page {
 .detail-list li {
   padding-top: 0.8rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  line-height: 1.7;
+  font-size: var(--box-copy-size);
+  line-height: var(--box-copy-line-height);
 }
 
 .detail-list li:first-child {
@@ -862,20 +917,8 @@ body.activation-page .content-page {
   transform: scale(1);
 }
 
-.member-section {
-  max-width: 1120px;
-  width: 100%;
-  margin: 8vh auto 4rem;
-  position: relative;
-  z-index: 2;
-}
-
-.process-shell {
-  max-width: 1120px;
-  width: 100%;
-  margin: 8vh auto 4rem;
-  position: relative;
-  z-index: 2;
+body.member-page .member-section .section-intro {
+  margin-top: 1.9rem;
 }
 
 .process-shell .section-lead {
@@ -885,6 +928,35 @@ body.activation-page .content-page {
 
 .process-cta {
   margin-top: 3.25rem;
+}
+
+.related-inline-links {
+  margin: 1rem 0 0;
+  text-align: left;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.related-inline-links a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease, opacity 160ms ease;
+}
+
+.related-inline-links a:hover,
+.related-inline-links a:focus-visible {
+  color: rgba(255, 255, 255, 0.96);
+  border-color: currentColor;
+}
+
+.related-inline-links span {
+  margin: 0 0.5rem;
+  opacity: 0.72;
 }
 
 @media (min-width: 721px) {
@@ -949,8 +1021,9 @@ body.activation-page .content-page {
 .member-contact,
 .member-detail {
   margin: 0;
-  line-height: 1.65;
-  font-size: 0.95rem;
+  font-size: var(--box-copy-size);
+  line-height: var(--box-copy-line-height);
+  text-wrap: pretty;
 }
 
 .member-tags {
@@ -1442,17 +1515,19 @@ body.activation-page .content-page {
     grid-template-columns: 1fr;
   }
 
-  .document-shell {
+  .document-shell,
+  .member-section,
+  .process-shell {
     margin-top: 7rem;
     margin-bottom: 3rem;
   }
 
-  .member-section {
-    margin-top: 7rem;
+  body.about-page .document-shell > .link-cluster:first-child {
+    transform: none;
   }
 
-  .process-shell {
-    margin-top: 7rem;
+  body.member-page .member-section .section-intro {
+    margin-top: 1.6rem;
   }
 
   .menu a {
