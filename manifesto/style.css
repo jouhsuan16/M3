@@ -707,12 +707,15 @@ body.split-view {
 }
 
 .back-to-top-link {
-    display: flex;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.45rem;
-    width: fit-content;
-    margin: 0 auto 0.55rem;
+    width: max-content;
+    margin: 0 0 0.55rem;
     color: #888;
     text-decoration: none;
     font-family: 'Space Mono', monospace;
@@ -731,7 +734,7 @@ body.split-view {
 .back-to-top-link:hover {
     color: var(--quote-color);
     opacity: 0.7;
-    transform: translateY(-5px);
+    transform: translate(-50%, -5px);
 }
 
 .top-back-btn {
