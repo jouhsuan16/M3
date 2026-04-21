@@ -382,6 +382,42 @@ body.activation-page .content-page {
   text-wrap: pretty;
 }
 
+.process-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 180px;
+  padding: 1rem;
+  border: 1px dashed rgba(255, 255, 255, 0.38);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.72);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.process-start-card .process-placeholder {
+  width: 88%;
+  aspect-ratio: 16 / 10;
+  justify-self: start;
+  align-self: start;
+}
+
+.process-reference-item .process-placeholder {
+  aspect-ratio: 4 / 3;
+  min-height: 0;
+}
+
+.gallery-card .process-placeholder {
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+}
+
 .project-card .link-cluster {
   margin-top: 1.25rem;
 }
