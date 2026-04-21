@@ -95,6 +95,59 @@ body.manifesto-process-page .bubble::after {
   background: rgba(193, 18, 31, 0.16);
 }
 
+body.game-process-page {
+  --text: #355126;
+  --button: rgba(95, 132, 58, 0.08);
+  --button-hover: rgba(95, 132, 58, 0.14);
+  --border: rgba(95, 132, 58, 0.24);
+  --panel: rgba(255, 255, 255, 0.28);
+  background: linear-gradient(180deg, #f8fcf0 0%, #dceeb8 56%, #c6df98 100%) fixed;
+}
+
+body.game-process-page .brand:hover {
+  color: #244118;
+}
+
+body.game-process-page .eyebrow,
+body.game-process-page .section-lead,
+body.game-process-page .subsection-note,
+body.game-process-page .card-kicker,
+body.game-process-page .process-reference-item figcaption,
+body.game-process-page .gallery-card figcaption,
+body.game-process-page .site-footer {
+  color: #355126;
+}
+
+body.game-process-page .page-home-link,
+body.game-process-page .back-to-top-link {
+  color: #355126;
+}
+
+body.game-process-page .page-home-link:hover,
+body.game-process-page .back-to-top-link:hover {
+  color: #244118;
+  opacity: 1;
+}
+
+body.game-process-page .link-pill {
+  border-color: rgba(95, 132, 58, 0.24);
+  background: rgba(95, 132, 58, 0.08);
+}
+
+body.game-process-page .link-pill:hover,
+body.game-process-page .link-pill:focus-visible {
+  background: rgba(95, 132, 58, 0.14);
+  border-color: rgba(95, 132, 58, 0.34);
+}
+
+body.game-process-page .feature-card {
+  background: rgba(255, 255, 255, 0.34);
+}
+
+body.game-process-page .bubble {
+  display: none;
+}
+
 .site-footer {
   position: fixed;
   left: 50%;
@@ -214,6 +267,48 @@ body.activation-page .content-page {
   background: var(--button-hover);
   border-color: rgba(255, 255, 255, 0.56);
   transform: translateY(-2px);
+}
+
+.home-manifesto-link:hover,
+.home-manifesto-link:focus-visible {
+  color: #C1121F;
+}
+
+.home-fun-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-fun-link .menu-link-text {
+  transition: opacity 140ms ease;
+}
+
+.home-fun-link::after {
+  content: attr(data-hover-label);
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 140ms ease, transform 140ms ease;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  font-size: 1.04rem;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.home-fun-link:hover .menu-link-text,
+.home-fun-link:focus-visible .menu-link-text {
+  opacity: 0;
+}
+
+.home-fun-link:hover::after,
+.home-fun-link:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .menu a:nth-child(2) {
