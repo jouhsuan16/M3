@@ -1,0 +1,16 @@
+manifesto-process.html:19:        <a href="./about.html#project-section">Project</a>
+manifesto-process.html:150:        <div class="link-cluster">
+about.html:17:        <a href="./about.html#project-section">Project</a>
+about.html:86:            <div class="link-cluster">
+about.html:104:            <div class="link-cluster">
+about.html:113:            <div class="link-cluster">
+how-we-work.html:19:        <a href="./about.html#project-section">Project</a>
+how-we-work.html:116:        <div class="link-cluster">
+style.css:582:.document-shell > .link-cluster:first-child {
+style.css:586:body.about-page .document-shell > .link-cluster:first-child {
+style.css:827:.project-card .link-cluster {
+style.css:995:.link-cluster {
+style.css:1679:  body.about-page .document-shell > .link-cluster:first-child {
+member.html:19:        <a href="./about.html#project-section">Project</a>
+game-process.html:17:        <a href="./about.html#project-section">Project</a>
+game-process.html:200:        <div class="link-cluster">
