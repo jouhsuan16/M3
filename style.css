@@ -244,22 +244,137 @@ body.activation-page .content-page {
   text-transform: none;
 }
 
+.home-menu {
+  position: relative;
+  z-index: 2;
+  width: min(220px, 100%);
+  margin: 16vh auto 0;
+  font-family: 'Space Mono', monospace;
+  animation: menu-bubble-drift 11.5s ease-in-out infinite;
+  --float-x: 26px;
+  --float-y: -34px;
+  --float-tilt: 1deg;
+}
+
+.home-menu > summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  background: var(--button);
+  cursor: pointer;
+  list-style: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.home-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-menu > summary:hover,
+.home-menu > summary:focus-visible,
+.home-menu[open] > summary {
+  background: var(--button-hover);
+  border-color: rgba(255, 255, 255, 0.56);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+}
+
+.home-menu-panel {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(18, 104, 200, 0.78);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
+}
+
+.home-menu-panel a {
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: color 140ms ease, opacity 140ms ease, transform 140ms ease;
+}
+
+.home-menu-panel a:hover,
+.home-menu-panel a:focus-visible {
+  opacity: 0.72;
+  transform: translateX(4px);
+}
+
+.home-menu-manifesto-link:hover,
+.home-menu-manifesto-link:focus-visible {
+  color: #C1121F;
+  opacity: 1;
+}
+
+.home-menu-fun-link {
+  position: relative;
+}
+
+.home-menu-fun-link span {
+  transition: opacity 140ms ease;
+}
+
+.home-menu-fun-link::after {
+  content: attr(data-hover-label);
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 140ms ease, transform 140ms ease;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.home-menu-fun-link:hover,
+.home-menu-fun-link:focus-visible {
+  opacity: 1;
+}
+
+.home-menu-fun-link:hover span,
+.home-menu-fun-link:focus-visible span {
+  opacity: 0;
+}
+
+.home-menu-fun-link:hover::after,
+.home-menu-fun-link:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .menu {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(2, minmax(122px, 1fr));
   align-content: start;
   justify-content: center;
-  gap: 14px 14px;
-  width: min(300px, 100%);
+  gap: 34px 42px;
+  width: min(430px, 100%);
   margin: 16vh auto 0;
   position: relative;
   z-index: 2;
 }
 
 .menu a {
-  --float-x: 10px;
-  --float-y: -18px;
+  --float-x: 24px;
+  --float-y: -32px;
   --float-tilt: 1deg;
   display: inline-flex;
   align-items: center;
@@ -332,27 +447,35 @@ body.activation-page .content-page {
 }
 
 .menu a:nth-child(2) {
-  --float-x: -12px;
-  --float-y: -15px;
+  --float-x: -30px;
+  --float-y: -24px;
   --float-tilt: -1deg;
   animation-delay: 0.5s;
   animation-duration: 11.8s;
 }
 
 .menu a:nth-child(3) {
-  --float-x: 14px;
-  --float-y: 16px;
+  --float-x: 34px;
+  --float-y: 28px;
   --float-tilt: -1.4deg;
   animation-delay: 1s;
   animation-duration: 12.6s;
 }
 
 .menu a:nth-child(4) {
-  --float-x: -9px;
-  --float-y: 18px;
+  --float-x: -28px;
+  --float-y: 34px;
   --float-tilt: 1.2deg;
   animation-delay: 1.5s;
   animation-duration: 10.9s;
+}
+
+.menu a:nth-child(5) {
+  --float-x: 18px;
+  --float-y: -38px;
+  --float-tilt: -0.8deg;
+  animation-delay: 2s;
+  animation-duration: 13.4s;
 }
 
 .page-home-link {
@@ -422,9 +545,9 @@ body.activation-page .content-page {
   top: calc(100% + 10px);
   right: 0;
   display: grid;
-  gap: 8px;
-  min-width: 260px;
-  padding: 12px;
+  gap: 10px;
+  min-width: 178px;
+  padding: 14px 18px;
   border: 1px solid var(--border);
   border-radius: 18px;
   background: rgba(18, 104, 200, 0.86);
@@ -459,6 +582,49 @@ body.activation-page .content-page {
   border-color: transparent;
   opacity: 0.72;
   transform: translateX(4px);
+}
+
+.page-menu-panel .page-menu-manifesto-link:hover,
+.page-menu-panel .page-menu-manifesto-link:focus-visible {
+  color: #C1121F;
+  opacity: 1;
+}
+
+.page-menu-fun-link {
+  position: relative;
+}
+
+.page-menu-fun-link span {
+  transition: opacity 140ms ease;
+}
+
+.page-menu-fun-link::after {
+  content: attr(data-hover-label);
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 140ms ease, transform 140ms ease;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.page-menu-fun-link:hover span,
+.page-menu-fun-link:focus-visible span {
+  opacity: 0;
+}
+
+.page-menu-panel .page-menu-fun-link:hover,
+.page-menu-panel .page-menu-fun-link:focus-visible {
+  opacity: 1;
+}
+
+.page-menu-fun-link:hover::after,
+.page-menu-fun-link:focus-visible::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 body.manifesto-process-page .page-menu > summary,
@@ -681,8 +847,12 @@ body.about-page #project-section .subsection-title {
   scroll-margin-top: 6rem;
 }
 
+.document-shell > .section-group:first-child {
+  margin-top: 0;
+}
+
 body.about-page #about-section {
-  margin-top: -1.25rem;
+  margin-top: 0;
 }
 
 .info-grid {
@@ -1627,7 +1797,7 @@ body.member-page .member-section .section-intro {
   }
 
   .page-menu-panel {
-    min-width: 236px;
+    min-width: 168px;
   }
 
   .site-footer {
